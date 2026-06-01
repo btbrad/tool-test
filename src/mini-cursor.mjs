@@ -50,6 +50,7 @@ async function runAgentWithTools(query, maxIterations = 30) {
     new HumanMessage(query)
   ]
 
+  // 要ai 不断的思考，直到不再调用 tool，就结束循环，这里搞了个最大循环次数，其实换成 while（true） 就行
   for (let i = 0; i < maxIterations; i++) {
     console.log(chalk.bgGreen(`⏳ 正在等待 AI 思考...`));
     const response = await modelWithTools.invoke(messages);
