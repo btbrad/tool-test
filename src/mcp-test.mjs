@@ -15,9 +15,9 @@ const model = new ChatOpenAI({
 const mcpClient = new MultiServerMCPClient({
   mcpServers: {
     'my-mcp-server': {
-      command: 'node',
-      args: [
-        'D:\\my_code\\tool-test\\src\\my-mcp-server.mjs'
+      "command": 'node',
+      "args": [
+        'D:\\code\\tool-test\\src\\my-mcp-server.mjs'
       ]
     },
     "amap-maps-streamableHTTP": {
@@ -88,6 +88,8 @@ async function runAgentWithTools(query, maxIteration = 30) {
   return messages[messages.length - 1].content
 }
 
+// await runAgentWithTools("市政府附近的酒店有哪些？")
+// await runAgentWithTools("查询上海今日天气，保存到D:\\code\\tool-test目录下，并保存为weather.md文件")
 await runAgentWithTools("打开浏览器，并打开百度首页")
 
 await mcpClient.close();
