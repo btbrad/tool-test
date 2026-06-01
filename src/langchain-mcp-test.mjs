@@ -71,6 +71,7 @@ async function runAgentWithTools(query, maxIteration = 30) {
   return messages[messages.length - 1].content
 }
 
-await runAgentWithTools("MCP Server 的使用指南是什么")
+await runAgentWithTools("查询002的信息")
+// await runAgentWithTools("MCP Server 的使用指南是什么")
 
 await mcpClient.close();
